@@ -10,3 +10,8 @@ You can use any libraries, the fewer the better.
 
 API info:
 https://onlinesim.ru/docs/api/ru/free/_info
+
+To run application: 
+1. Clone project
+2. Run "mvn package" 
+3. Run jar with "java -jar target/test-task-1-1.0-SNAPSHOT-shaded.jar"
