@@ -30,16 +30,16 @@ public class PhoneNumberService {
     }
 
     public List<PhoneNumber> findPhoneNumbers(final Long countryId) {
-        List<PhoneNumber> phoneNumbers = new ArrayList<>();
+        var phoneNumbers = new ArrayList<PhoneNumber>();
 
-        String response = Utils.getJSONFromAPI(API_URL + countryId);
+        var response = Utils.getJSONFromAPI(API_URL + countryId);
 
         try {
-            JSONObject jsonResponse = new JSONObject(response);
-            JSONArray jsonPhoneNumbers = jsonResponse.getJSONArray("numbers");
+            var jsonResponse = new JSONObject(response);
+            var jsonPhoneNumbers = jsonResponse.getJSONArray("numbers");
             for (int i = 0; i < jsonPhoneNumbers.length(); i++) {
-                JSONObject jsonPhoneNumber = jsonPhoneNumbers.getJSONObject(i);
-                PhoneNumber phoneNumber = new PhoneNumber(jsonPhoneNumber);
+                var jsonPhoneNumber = jsonPhoneNumbers.getJSONObject(i);
+                var phoneNumber = new PhoneNumber(jsonPhoneNumber);
                 phoneNumbers.add(phoneNumber);
             }
         } catch (JSONException e) {

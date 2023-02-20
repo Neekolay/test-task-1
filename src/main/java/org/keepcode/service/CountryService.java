@@ -30,16 +30,16 @@ public class CountryService {
     }
 
     public List<Country> findCountries() {
-        List<Country> countries = new ArrayList<>();
+        var countries = new ArrayList<Country>();
 
-        String response = Utils.getJSONFromAPI(API_URL);
+        var response = Utils.getJSONFromAPI(API_URL);
 
         try {
-            JSONObject jsonResponse = new JSONObject(response);
-            JSONArray jsonCountries = jsonResponse.getJSONArray("countries");
+            var jsonResponse = new JSONObject(response);
+            var jsonCountries = jsonResponse.getJSONArray("countries");
             for (int i = 0; i < jsonCountries.length(); i++) {
-                JSONObject jsonCountry = jsonCountries.getJSONObject(i);
-                Country country = new Country(jsonCountry);
+                var jsonCountry = jsonCountries.getJSONObject(i);
+                var country = new Country(jsonCountry);
                 countries.add(country);
             }
         } catch (JSONException e) {
